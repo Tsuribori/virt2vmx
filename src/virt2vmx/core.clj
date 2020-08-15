@@ -9,14 +9,11 @@
   (str/replace name #".xml" ".vmx"))
 
 (def cli-options
-  [["-f" "--file NAME" "Qemu file to convert"]
-   ["-o" "--output NAME" "Name of the output file"]])
+  [["-f" "--file NAME" "Qemu file to convert"]])
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (let [{:keys [options]} (parse-opts args cli-options)]
-    (let [{:keys [file output]} options]
-      (if (nil? output)
-        (convert file (get-output file))
-        (convert file output)))))
+    (let [{:keys [file]} options]
+        (convert file (get-output file)))))

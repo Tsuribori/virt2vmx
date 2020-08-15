@@ -13,25 +13,20 @@ Download from http://example.com/FIXME.
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar virt2vmx-0.1.0-standalone.jar [args]
+    $ sudo java -jar virt2vmx-0.1.0-standalone.jar -f /path/to/VM.xml
+    
+This will write the VMX file and the VMDK to `pwd`. Note that `sudo` is usually required due to the
+default permissions on libvirt domain XML files and `.qcow2` files. 
 
 ## Options
 
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
+```
+-f --file NAME Qemu file to convert
+```
 
 ### Bugs
 
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+Probably plenty of bugs involving conversion, so please make a issue if you encounter one!
 
 ## License
 

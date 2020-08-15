@@ -42,12 +42,13 @@
 
 (defn get-disk-source-converted [source type]
   "No relative paths in VMX!"
-  (last
-   (s/split
-    (if (= type "disk")
-      (s/replace source #".qcow2" ".vmdk")
-      source)
-    #"/")))
+  (when-not (nil? source)
+    (last
+     (s/split
+      (if (= type "disk")
+        (s/replace source #".qcow2" ".vmdk")
+        source)
+      #"/"))))
 
 ;;(defn get-disk-target [val]
 ;;(get-in (get-tag val :target) [:attrs :dev])) 
