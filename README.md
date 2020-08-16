@@ -26,7 +26,7 @@ default permissions on libvirt domain XML files and `.qcow2` files.
 
 ## Platforms tested
 
-* VMWare Workstation 15.5 Pro on Linux
+* VMware Workstation 15.5 Pro on Linux
 
 ## Bugs
 
