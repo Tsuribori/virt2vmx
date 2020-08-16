@@ -9,7 +9,7 @@ For VM disk conversion `qemu-img` command is required. Also Java LTS (8 or 11) t
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Download from https://github.com/Tsuribori/virt2vmx/releases.
 
 ## Usage
 
