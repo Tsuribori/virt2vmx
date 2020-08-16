@@ -24,7 +24,7 @@
               ["present = \"true\"\n"
                (format "deviceType = \"%s\"\n" (.type this))
                (when-let [filename (.source-converted this)]
-                 (format "filename: \"%s\"\n" filename))])))))
+                 (format "fileName = \"%s\"\n" filename))])))))
 
 (defn get-disk-bus [val]
   (get-in (get-tag val :target) [:attrs :bus]))

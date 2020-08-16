@@ -1,11 +1,11 @@
 # virt2vmx
 
 Convert libvirt domain XML to VMX format. At current stage the project is meant to be a quick tool
-for importing qemu-kvm VMs to VMWare infrastructure, not a comprehensive converting tool.
+for importing qemu-kvm VMs to VMware infrastructure, not a comprehensive converting tool.
 
 ## Requirements
 
-For VM disk conversion `qemu-img` command is required.
+For VM disk conversion `qemu-img` command is required. Also Java LTS (8 or 11) to run the jar.
 
 ## Installation
 
@@ -24,7 +24,11 @@ default permissions on libvirt domain XML files and `.qcow2` files.
 -f --file NAME Qemu file to convert
 ```
 
-### Bugs
+## Platforms tested
+
+* VMWare Workstation 15.5 Pro on Linux
+
+## Bugs
 
 Probably plenty of bugs involving conversion, so please make a issue if you encounter one!
 

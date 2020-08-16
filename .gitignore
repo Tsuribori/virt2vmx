@@ -15,4 +15,6 @@ pom.xml.asc
 *.xml
 *.qcow2
 *.vmdk
+*.vmxf
+*.vmsd
 *.#*
