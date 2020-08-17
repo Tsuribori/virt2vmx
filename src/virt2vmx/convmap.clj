@@ -9,7 +9,8 @@
     (fn [_ val]
       (let [ival (Integer/parseInt (first val))]
         (format "memSize = \"%s\"\n"
-                (str (/ (- ival (mod ival 4096)) 1024)))))
+                (let [megabytes (/ (* ival 1024) 1000000)]
+                  (str (- megabytes (mod megabytes 4)))))))
     :vcpu
     (fn [_ val] (format "numvcpus = \"%s\"\n" (first val)))
     :disk
