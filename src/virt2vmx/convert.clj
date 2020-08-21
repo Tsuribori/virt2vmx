@@ -1,5 +1,6 @@
 (ns virt2vmx.convert
   (:require [clojure.data.xml :refer [parse-str]])
+  (:require [virt2vmx.preprocess :refer [preprocess-func]])
   (:require [virt2vmx.convmap :refer :all]))
 
 (defprotocol Translation
@@ -23,18 +24,18 @@
 (defn loop-tree
   "Go through the XML tree seq recursively."
   ([node]
-   (loop-tree node ""))
+   (loop-tree node []))
   ([node output]
    (if (empty? node)
      output
-     (recur (rest node) (str output (translate-node (first node)))))))
+     (recur (rest node) (conj output (translate-node (first node)))))))
  
 (defn transform-to-vmx [contents]
   (str
    ".encoding = \"UTF-8\"\n"
    "config.version = \"8\"\n"
    "virtualHW.version = \"8\"\n"
-   (loop-tree (get-xml contents))))
+   (apply str (loop-tree (preprocess-func (get-xml contents))))))
 
 (defn convert [file output]
   (let [contents (slurp file)]

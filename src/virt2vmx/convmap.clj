@@ -1,5 +1,6 @@
 (ns virt2vmx.convmap
-  (:require [virt2vmx.objects.disk :refer [get-disk]]))
+  (:require [virt2vmx.objects.disk :refer [get-disk]])
+  (:require [virt2vmx.objects.interface :refer [get-interface]]))
 
 (defn convert-tag [tag]
   (case tag
@@ -15,4 +16,5 @@
     (fn [_ val] (format "numvcpus = \"%s\"\n" (first val)))
     :disk
     (fn [attrs val] (get-disk attrs val))
+    :interface (fn [attrs val] (get-interface attrs val))
     nil))
